@@ -1,0 +1,100 @@
+@import "~normalize.css";
+@import 'reset';
+@import 'fonts';
+@import 'vars';
+// @import 'libs';
+@import 'global';
+
+
+.swiper {
+    width: 100%;
+}
+.slider {
+    margin: auto 0;
+    height: 100%;
+    transform: rotate(15deg);
+    overflow: visible;
+		
+		// .slider__wrapper
+
+		&__wrapper {
+            transition: #{$transition}!important;
+            will-change: transform;
+		}
+
+		// .slider__item
+
+		&__item {
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform #{$transition}, box-shadow #{$transition};
+
+            &.opened{
+                z-index: 2;
+                transform: rotate(-15deg) scale(1.2); 
+                box-shadow: rgba(0, 0, 0, .75) 0 0 0 10000px;  
+                display: flex;
+                flex-direction: column;   
+                overflow: visible;
+            }
+		}
+
+        &__img{
+            overflow: visible;
+            background-size: cover;
+            background-position: top center;
+            transition: #{$transition}!important;
+            will-change: transform;
+        }
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.img {
+   overflow: hidden;
+}
+
+
+.slider_bg{
+    z-index: 0;
+    transform: rotate(-20deg)!important;
+    top: -90vh;
+    left: -11vh;
+    opacity: 0.15;
+    filter: blur(120px) saturate(20) ;
+}
+
+.description {
+    position: absolute;
+    font-size: calc(#{$sizeindex} * .8);
+    top: 10vh;
+    left: 8vw;
+    max-width: 24vw;
+    transition: opacity #{$transition}, transform #{$transition};
+    p{
+     opacity: .8;  
+     transition: transform #{$transition};
+     transition-duration: 3s;
+    }
+    &.hidden{
+        opacity: 0;
+        transform: translateY(5vh);
+        p{
+            transform: translateY(2vh);   
+        }
+    }
+}
+.logo {
+    font-size: calc(#{$sizeindex} * 3.6);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 2vh;
+    display: inline-block;
+    background: linear-gradient(45deg, rgba(18,17,17,1) 0%, rgba(18,58,113,1) 49%, rgba(79,30,108,1) 88%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
